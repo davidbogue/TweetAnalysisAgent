@@ -8,10 +8,12 @@ import java.util.logging.Logger;
 public class AnalysisThread implements Runnable {
     
     private final TweetProcessQueueDAO processQueue;
+    private final TweetAnalyzer analyzer;
     private int sleepInSeconds = 1;
 
     public AnalysisThread() {
         processQueue = new TweetProcessQueueDAO();
+        analyzer = new TweetAnalyzer();
     }
     
     @Override
@@ -20,8 +22,9 @@ public class AnalysisThread implements Runnable {
             try {
                 Long tweetId = processQueue.getNextTweetId();
                 if(tweetId != null){
+                    System.out.println("Processing Tweet: "+tweetId);
                     sleepInSeconds = 1; // reset Sleep time
-                    
+                    analyzer.analyzeTweet(tweetId);
                 } else {
                     System.out.println("Nothing to process.. going to sleep for a bit");
                     Thread.sleep(getSleepTime());
@@ -42,6 +45,4 @@ public class AnalysisThread implements Runnable {
         return millis;
     }
 
-    
-   
 }
