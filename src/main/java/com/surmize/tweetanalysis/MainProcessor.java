@@ -1,6 +1,6 @@
 package com.surmize.tweetanalysis;
 
-public class TweetAnalyzer {
+public class MainProcessor {
 
     public static void main(String args[]){
         
