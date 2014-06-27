@@ -3,8 +3,6 @@ package com.surmize.tweetanalysis;
 import com.surmize.dao.TweetDAO;
 import com.surmize.models.Tweet;
 import com.surmize.models.TwitterUser;
-import com.surmize.textalytics.AnalyzedDocument;
-import com.surmize.textalytics.TextAnalyzer;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,11 +10,11 @@ import java.util.logging.Logger;
 public class TweetAnalyzer {
 
     private final TweetDAO tweetDao;
-    private final TextAnalyzer textAnalzer;
+    private final TweetSentimentAnalyzer sentimentAnalzer;
     
     public TweetAnalyzer() {
         tweetDao = new TweetDAO();
-        textAnalzer = new TextAnalyzer();
+        sentimentAnalzer = new TweetSentimentAnalyzer();
     }
     
     public void analyzeTweet(Long tweetId){
@@ -37,8 +35,8 @@ public class TweetAnalyzer {
     } 
     
     public void determineSentiment(Tweet t){
-        AnalyzedDocument document = textAnalzer.analyze(t.text);
-        System.out.println("sentiment: "+document.getSentiment());
+        int sentiment = sentimentAnalzer.getSentiment(t.text);
+        System.out.println("sentiment: "+sentiment);
     }
     
     public void hasLink(Tweet t){

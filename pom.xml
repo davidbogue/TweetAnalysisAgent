@@ -22,11 +22,6 @@
             <artifactId>SurmizeData</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>Textalytics</groupId>
-            <artifactId>Textalytics</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
     
     <build>
