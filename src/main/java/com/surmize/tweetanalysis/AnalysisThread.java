@@ -22,7 +22,6 @@ public class AnalysisThread implements Runnable {
             try {
                 Long tweetId = processQueue.getNextTweetId();
                 if(tweetId != null){
-                    System.out.println("Processing Tweet: "+tweetId);
                     sleepInSeconds = 1; // reset Sleep time
                     analyzer.analyzeTweet(tweetId);
                 } else {
