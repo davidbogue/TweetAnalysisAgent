@@ -34,7 +34,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.surmize.tweetanalysis.TweetAnalyzer</mainClass>
+                            <mainClass>com.surmize.tweetanalysis.Agent</mainClass>
                             <classpathPrefix>lib/</classpathPrefix>
                         </manifest>
                     </archive>

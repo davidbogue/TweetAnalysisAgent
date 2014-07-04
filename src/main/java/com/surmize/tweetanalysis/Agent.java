@@ -1,9 +1,9 @@
 package com.surmize.tweetanalysis;
 
-public class MainProcessor {
+public class Agent {
 
     public static void main(String args[]){
-        MainProcessor main = new MainProcessor();
+        Agent main = new Agent();
         main.startAnalysisThread();
     }
     
