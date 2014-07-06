@@ -92,7 +92,7 @@ public class TweetAnalyzer {
     
     private void loadSymbolMap() throws SQLException{
         stockSymbolMap = new HashMap<>();
-        List<StockSymbol> symbols = stockDao.getTwitterStockSymbols();
+        List<StockSymbol> symbols = stockDao.getActiveStockSymbols();
         for (StockSymbol stockSymbol : symbols) {
             stockSymbolMap.put("$"+stockSymbol.symbol, stockSymbol.id);
         }
