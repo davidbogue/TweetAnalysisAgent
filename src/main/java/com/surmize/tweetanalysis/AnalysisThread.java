@@ -25,7 +25,6 @@ public class AnalysisThread implements Runnable {
                     sleepInSeconds = 1; // reset Sleep time
                     analyzer.analyzeTweet(tweetId);
                 } else {
-                    System.out.println("Nothing to process.. going to sleep for a bit");
                     Thread.sleep(getSleepTime());
                 }
             } catch (InterruptedException | SQLException ex) {
