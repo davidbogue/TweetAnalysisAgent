@@ -81,12 +81,13 @@ public class TweetAnalyzer {
     }
     
     public float calculateInfluence(TwitterUser user){
-        //(followers_count * (followers_count/statuses_count))
+        //(followers_count * MIN (2, (followers_count/statuses_count)) )
         if(user == null){
             return 0f;
         }
-        
-        float influence = ((float)user.followersCount * ((float)user.followersCount /(float)user.statusesCount ));
+        if(user.statusesCount == 0){ return 0f; }
+        float mutliplier = Math.min(2f, (float)user.followersCount /(float)user.statusesCount );
+        float influence = ((float)user.followersCount * (mutliplier));
         return influence;
     }
     
